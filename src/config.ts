@@ -49,8 +49,11 @@ class Config {
   get workingPath() {
     return process.cwd();
   }
+
+  private configFilename = "lamb-cli.config.json";
+
   get metadataPath() {
-    return path.resolve(this.workingPath, "lamb-push.config.json");
+    return path.resolve(this.workingPath, this.configFilename);
   }
 
   private get metadataContent() {
