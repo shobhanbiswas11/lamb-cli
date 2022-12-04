@@ -12,6 +12,7 @@ export async function createZipBuffer({
     entryPoints: [entry],
     bundle: true,
     write: false,
+    minify: true,
     platform: "node",
     ...config,
   });
