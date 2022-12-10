@@ -1,6 +1,6 @@
 {
   "name": "lamb-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple cli to deal with Aws Lambda",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
