@@ -30,7 +30,7 @@ Note: If you don’t already have Node on your machine, [install it first](https
 To add a lambda function, run the command below and follow the prompts:
 
 ```bash
-# Create a new serverless project
+# Add exiting lambda function to update
 lamb-cli add
 ```
 
@@ -55,7 +55,7 @@ eg.
 To update a function to the server, run the command below and follow the prompts:
 
 ```bash
-# Create a new serverless project
+# Build and push the lambda function
 lamb-cli push
 ```
 
@@ -63,17 +63,16 @@ lamb-cli push
 
 
 ```bash
-# Create a new serverless project
+# Create a lambda function along with necessary role
 lamb-cli create
 ```
-use `create` to create a lambda function along with necessary role. 
+
 
 
 ```bash
-# Create a new serverless project
+# delete the generated function and the role from the server
 lamb-cli delete
 ```
-use `delete` to delete the generated function and the role from the server. 
 
 
 
