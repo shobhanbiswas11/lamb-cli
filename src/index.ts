@@ -14,7 +14,6 @@
 import { Command } from "commander";
 import inquirer from "inquirer";
 import path from "path";
-import { v4 } from "uuid";
 import { config } from "./config";
 import { CreateExecution, DeleteExecution } from "./lambda";
 import { LambdaLocal } from "./lambda-local";
@@ -163,10 +162,9 @@ import { createZipBuffer } from "./zip";
 
       const { FunctionArn, RoleName } = await createExecution.execute({
         name,
-        unit8ArrayBuffer: await lambdaLocal.getZipUnit8Array(
-          srcFile,
-          `${name}-${v4()}`
-        ),
+        unit8ArrayBuffer: await lambdaLocal.getZipUnit8Array({
+          entryFile: srcFile,
+        }),
       });
 
       await metadata.addFunction({

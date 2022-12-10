@@ -27,7 +27,13 @@ export class LambdaLocal {
     return filePath;
   }
 
-  async getZipUnit8Array(entryFile: string, zipEntryFile: string) {
+  async getZipUnit8Array({
+    entryFile,
+    handlerFileName = "index.js",
+  }: {
+    entryFile: string;
+    handlerFileName?: string;
+  }) {
     const bundler = new Bundler();
     const zipMaker = new ZipMaker();
 
@@ -37,7 +43,7 @@ export class LambdaLocal {
 
     const zipBuff = zipMaker.createFromBuffer({
       buffer,
-      fileName: zipEntryFile,
+      fileName: handlerFileName,
     });
 
     return Uint8Array.from(zipBuff);
