@@ -61,3 +61,19 @@ lamb-cli push
 
 `push` will ask you to choose from the added functions
 
+
+```bash
+# Create a new serverless project
+lamb-cli create
+```
+use `create` to create a lambda function along with necessary role. 
+
+
+```bash
+# Create a new serverless project
+lamb-cli delete
+```
+use `delete` to delete the generated function and the role from the server. 
+
+
+

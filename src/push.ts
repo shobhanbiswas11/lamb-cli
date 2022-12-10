@@ -1,5 +1,6 @@
 import {
   LambdaClient,
+  LambdaClientConfig,
   UpdateFunctionCodeCommand,
 } from "@aws-sdk/client-lambda";
 
@@ -10,13 +11,8 @@ export async function push({
   credentials,
 }: {
   zipBuffer: Buffer;
-  region: string;
   functionArn: string;
-  credentials?: {
-    accessKeyId: string;
-    secretAccessKey: string;
-  };
-}) {
+} & LambdaClientConfig) {
   const client = new LambdaClient({
     region,
     credentials,
