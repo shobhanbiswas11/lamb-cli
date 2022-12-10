@@ -47,10 +47,10 @@ describe("Test for lambda local artifacts", () => {
     const lambdaLocal = new LambdaLocal({
       projectRoot: "/",
     });
-    const resUnit8Array = await lambdaLocal.getZipUnit8Array(
-      "/my-lambda.js",
-      "index.js"
-    );
+    const resUnit8Array = await lambdaLocal.getZipUnit8Array({
+      entryFile: "/my-lambda.js",
+      handlerFileName: "index.js",
+    });
 
     expect(bundleToBuffer).toHaveBeenCalledWith({
       entryFile: "/my-lambda.js",

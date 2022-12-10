@@ -3,6 +3,14 @@ import path from "path";
 import Bundler from "./lib/bundler";
 import ZipMaker from "./lib/zip";
 
+const tsBP = `export const handler = async ()=> {
+  console.log("hello from handler");
+}`;
+
+const jsBP = `exports.handler = async()=> {
+  console.log("hello from handler");
+} 
+`;
 export class LambdaLocal {
   constructor(private config: { projectRoot: string }) {}
   async createEntryFile({
@@ -15,6 +23,7 @@ export class LambdaLocal {
     typescript: boolean;
   }) {
     const ext = typescript ? "ts" : "js";
+    const bp = typescript ? tsBP : jsBP;
 
     const filePath = path.resolve(
       this.config.projectRoot,
@@ -22,7 +31,7 @@ export class LambdaLocal {
       `${filename}.${ext}`
     );
 
-    await fs.writeFile(filePath, "//This is the entry file for your lambda");
+    await fs.writeFile(filePath, bp);
 
     return filePath;
   }
